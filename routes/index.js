@@ -1,10 +1,13 @@
 var express = require('express');
 var request = require('request');
+var dbConfig = require('../configs/dbconf');
 var router = express.Router();
+
+var dbUri = dbConfig.dbHost + ':' + dbConfig.dbPort;
 
 // couchdb server healtcheck
 router.get('/healthcheck', function (req, res) {
-  request.get('http://127.0.0.1:5985', function (error, response, body) {
+  request.get(dbUri, function (error, response, body) {
     if (error) {
       res.status(500).send(error.message);
     } else {
