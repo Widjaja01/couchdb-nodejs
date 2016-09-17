@@ -4,4 +4,4 @@ module.exports = {
   'dbName': 'game',
   'designDocumentName': 'game',
   'viewName': 'simpleGet'
-}
+};
